@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Counter from "./ton";
+
 
 export default function Home() {
   return (
@@ -14,7 +16,7 @@ export default function Home() {
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
-          >
+            >
             By{" "}
             <Image
               src="/vercel.svg"
@@ -28,8 +30,9 @@ export default function Home() {
         </div>
       </div>
 
+              <Counter/>
       <div className={styles.center}>
-        <h1>Ton App &nbsp;</h1>
+        <h1>Ton App</h1>
         <Image
           className={styles.logo}
           src="/next.svg"
