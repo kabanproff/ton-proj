@@ -5,7 +5,7 @@ import { main } from "./hook";
 
 export default function Counter() {
   const [count, setCount] = useState("0")
-  const [data, setData] = useState("0")
+  const [data, setData] = useState(0)
   // async function getData() {
   //   return await main();
   // }
@@ -15,9 +15,9 @@ export default function Counter() {
   
   useEffect(()=>{
     const ton = getData();
-    ton.then(res=> {
-      console.log(res);
-      setData(res)
+    ton.then(res => {
+      // console.log(res);
+      setData(res as any)
       
     })
     console.log(ton);
