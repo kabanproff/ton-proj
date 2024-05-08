@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import styles from "./counter.module.css";
 import { useTonConnect } from '../hooks/useTonConnect';
 
-const Counter = ({handlerActive, active, counter,isZerable, setCounter}) => {
+const Counter = (props: object) => {
   const { network } = useTonConnect();
   // console.log(network)
   const [count, setCount] = useState(0)
@@ -18,12 +18,12 @@ const Counter = ({handlerActive, active, counter,isZerable, setCounter}) => {
 
   const handlerClick = () => {
     // let timer;
-    if((counter < 100) && isZerable) {
+    if((props.counter < 100) && props.isZerable) {
       clearInterval(timer)
       console.log('ddddd',timer)
       setTimer(setInterval(
         () =>
-          setCounter((prevCount) => {
+          props.setCounter((prevCount) => {
             if((prevCount <= 50) && prevCount < 50) {
               // console.log(timer)
               return prevCount + 1; 
@@ -39,8 +39,8 @@ const Counter = ({handlerActive, active, counter,isZerable, setCounter}) => {
       // setTimer(timer);
       return;
     }
-    handlerActive(true);
-    if(active) {
+    props.handlerActive(true);
+    if(props.active) {
       setCount(count + 1);
     }
   }
