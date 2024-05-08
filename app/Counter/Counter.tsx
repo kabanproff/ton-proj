@@ -6,6 +6,13 @@ import styles from "./counter.module.css";
 import { useTonConnect } from '../hooks/useTonConnect';
 
 const Counter = (props: object) => {
+  const {
+    handlerActive, 
+    active, 
+    counter, 
+    isZerable, 
+    setCounter
+  } = props as any;
   const { network } = useTonConnect();
   // console.log(network)
   const [count, setCount] = useState(0)
@@ -18,12 +25,12 @@ const Counter = (props: object) => {
 
   const handlerClick = () => {
     // let timer;
-    if((props.counter < 100) && props.isZerable) {
+    if((counter < 100) && isZerable) {
       clearInterval(timer)
       console.log('ddddd',timer)
       setTimer(setInterval(
         () =>
-          props.setCounter((prevCount) => {
+          setCounter((prevCount: number) => {
             if((prevCount <= 50) && prevCount < 50) {
               // console.log(timer)
               return prevCount + 1; 
@@ -35,12 +42,12 @@ const Counter = (props: object) => {
               return 50;
             }
           }
-          ),1000))
+          ),1000) as unknown as number)
       // setTimer(timer);
       return;
     }
-    props.handlerActive(true);
-    if(props.active) {
+    handlerActive(true);
+    if(active) {
       setCount(count + 1);
     }
   }

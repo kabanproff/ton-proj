@@ -9,13 +9,13 @@ export default function Home() {
   let incrementBy = 1;
   let timeInterval = 100;
   
-  const [count, setCount] = useState(50);
-  const [timer, setTimer] = useState(0);
-  const [active, setActive] = useState(false);
-  const [isZerable, setIsZerable] = useState(false)
+  const [count, setCount] = useState(50 as number);
+  const [timer, setTimer] = useState(0 as number);
+  const [active, setActive] = useState(false as boolean);
+  const [isZerable, setIsZerable] = useState(false as boolean)
   
   useEffect(() => {
-    let timer = 0;
+    let timer = 0 as number;
     if(active && count > 0) {
       clearInterval(timer)
       // console.log(active, count, 'd',timer)
@@ -35,15 +35,11 @@ export default function Home() {
           }
           ),
         timeInterval
-      );
+      ) as unknown as number;
       setTimer(timer);
       
     } else {
       console.log('active', active)
-    
-      // 
-      // setCount(50) 
-      // setActive(false)
     }
   }, [active]);
 
