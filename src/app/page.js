@@ -50,8 +50,8 @@ export default function Home() {
         clikers={clikers}
         handleClick={handleClick}
       />
-      // decrease
-      // increase
+      
+    
       <Progress 
         status={status}
         progress={progress}
