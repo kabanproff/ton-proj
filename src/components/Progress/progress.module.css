@@ -1,0 +1,36 @@
+.progressBar {
+  width: 100%;
+  height: 15px;
+  margin: auto;
+  display: flex;
+  
+  /* background-color: #ccc; */
+  background: rgb(149,22,61);
+  background: linear-gradient(90deg, rgba(149,22,61,1) 1%, rgba(129,221,78,1) 73%);
+}
+
+.main {
+  position: relative;
+margin-bottom: 20px;
+width: 100%;
+}
+
+.count {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -3px;
+  color: black;
+}
+
+.progressBar::after{
+  content: '';
+  height: 15px;
+  flex: 1;
+  background-color: #fff;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+}
