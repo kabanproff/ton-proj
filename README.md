@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mini Apps, использует следующие технологии и библиотеки:
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
+- [@telegram-apps SDK](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk)
+- [Telegram UI](https://github.com/Telegram-Mini-Apps/TelegramUI)
 
 ## Getting Started
 
-First, run the development server:
+Если вы только что клонировали этот шаблон, вам следует установить зависимости проекта с помощью
+команды:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Этот проект содержит следующие скрипты:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `dev`. Запускает приложение в режиме разработки.
+- `dev:https`. Запускает приложение в режиме разработки с использованием самоподписанного SSL-сертификата.
+- `build`. Собирает приложение для производства.
+- `start`. Запускает сервер Next.js в режиме производства.
+- `lint`. Запускает [eslint](https://eslint.org/), чтобы убедиться, что качество кода соответствует требуемым стандартам.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+затем:
 
-## Learn More
+```bash
+npm run {script}
+# Пример: npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Запуск внутри Telegram
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Хотя приложение можно запустить вне Telegram, рекомендуется разрабатывать его
+в Telegram для наиболее точного представления его реальных функциональных возможностей.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Для запуска приложения внутри Telegram [@BotFather](https://t.me/botfather) требуется ссылка HTTPS.
 
-## Deploy on Vercel
+Этот шаблон уже предоставляет решение.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Чтобы получить ссылку с протоколом HTTPS, рассмотрите возможность использования скрипта `dev:https`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+$ npm run dev:https
+
+▲ Next.js 14.2.3
+- Локально: https://localhost:3000
+
+✓ Запуск...
+✓ Готово через 2,4 с
+```
+
+Перейдя по ссылке `Local` (`https://localhost:3000` в этом примере) в
+браузере, вы увидите SSL предупреждение:
+Это предупреждение браузера является нормальным и может быть безопасно проигнорировано, если сайт защищен. Нажмите кнопку `Перейти на localhost (небезопасно)`, чтобы продолжить и просмотреть приложение.
+
+После того, как приложение будет отображаться правильно, отправьте
+ссылку `https://127.0.0.1:3000` (`https://localhost:3000` считается недействительным BotFather) в качестве
+ссылки на Mini App на [@BotFather](https://t.me/botfather). Затем перейдите
+на [https://web.telegram.org/k/](https://web.telegram.org/k/), найдите своего бота и запустите
+Telegram Mini App. Такой подход обеспечивает полный опыт разработки.
