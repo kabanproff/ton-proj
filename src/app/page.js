@@ -4,6 +4,10 @@ import Counter from "../components/Counter/Counter";
 import { useEffect, useState } from "react";
 import Progress from "@/components/Progress/Progress";
 
+import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
+import { Link } from '@/components/Link/Link';
+import tonSvg from './_assets/ton.svg';
+
 
 export default function Home() {
   
@@ -45,6 +49,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Link href="/main">main</Link>
       
       <h1>Counter</h1>
       <Counter 
