@@ -6,13 +6,12 @@ import { RGB } from '@/components/RGB/RGB';
 import { Link } from '@/components/Link/Link';
 
 import './styles.css';
+import { BackButton } from '../BackButton/BackButton';
 
-export type DisplayDataRow =
-  & { title: string }
-  & (
+export type DisplayDataRow = { title: string } & (
   | { type: 'link'; value?: string }
   | { value: ReactNode }
-  )
+);
 
 export interface DisplayDataProps {
   header?: ReactNode;
@@ -22,6 +21,7 @@ export interface DisplayDataProps {
 
 export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
   <Section header={header}>
+    <BackButton />
     {rows.map((item, idx) => {
       let valueNode: ReactNode;
 
@@ -31,11 +31,13 @@ export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
         if ('type' in item) {
           valueNode = <Link href={item.value}>Open</Link>;
         } else if (typeof item.value === 'string') {
-          valueNode = isRGB(item.value)
-            ? <RGB color={item.value}/>
-            : item.value;
+          valueNode = isRGB(item.value) ? (
+            <RGB color={item.value} />
+          ) : (
+            item.value
+          );
         } else if (typeof item.value === 'boolean') {
-          valueNode = <Checkbox checked={item.value} disabled/>;
+          valueNode = <Checkbox checked={item.value} disabled />;
         } else {
           valueNode = item.value;
         }
@@ -49,9 +51,7 @@ export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
           multiline={true}
           key={idx}
         >
-          <span className='display-data__line-value'>
-            {valueNode}
-          </span>
+          <span className='display-data__line-value'>{valueNode}</span>
         </Cell>
       );
     })}

@@ -1,5 +1,9 @@
 import { useClientOnce } from '@/hooks/useClientOnce';
-import { mockTelegramEnv, parseInitData, retrieveLaunchParams } from '@telegram-apps/sdk-react';
+import {
+  mockTelegramEnv,
+  parseInitData,
+  retrieveLaunchParams,
+} from '@telegram-apps/sdk-react';
 
 /**
  * Mocks Telegram environment in development mode.
@@ -27,16 +31,22 @@ export function useTelegramMock(): void {
 
     if (shouldMock) {
       const initDataRaw = new URLSearchParams([
-        ['user', JSON.stringify({
-          id: 99281932,
-          first_name: 'Kristina',
-          last_name: 'Poluyanova',
-          username: 'rogue',
-          language_code: 'en',
-          is_premium: true,
-          allows_write_to_pm: true,
-        })],
-        ['hash', '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31'],
+        [
+          'user',
+          JSON.stringify({
+            id: 99281932,
+            first_name: 'Kristina',
+            last_name: 'Poluyanova',
+            username: 'rogue',
+            language_code: 'en',
+            is_premium: true,
+            allows_write_to_pm: true,
+          }),
+        ],
+        [
+          'hash',
+          '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31',
+        ],
         ['auth_date', '1716922846'],
         ['start_param', 'debug'],
         ['chat_type', 'sender'],
@@ -46,11 +56,11 @@ export function useTelegramMock(): void {
       mockTelegramEnv({
         themeParams: {
           accentTextColor: '#6ab2f2',
-          bgColor: '#17212b',
+          bgColor: '#000000',
           buttonColor: '#5288c1',
           buttonTextColor: '#ffffff',
           destructiveTextColor: '#ec3942',
-          headerBgColor: '#17212b',
+          headerBgColor: '#000000',
           hintColor: '#708499',
           linkColor: '#6ab3f3',
           secondaryBgColor: '#232e3c',
@@ -67,7 +77,7 @@ export function useTelegramMock(): void {
       sessionStorage.setItem('____mocked', '1');
 
       console.info(
-        'Пока текущая среда не рассматривалась как среда на основе Telegram, она была имитирована. Обратите внимание, что вам не следует делать этого в производстве, а текущее поведение характерно только для процесса разработки. Имитация среды также применяется только в режиме разработки. Таким образом, после сборки приложения вы не увидите этого поведения и соответствующего предупреждения, приводящего к сбою приложения вне Telegram'
+        'Пока текущая среда не рассматривалась как среда на основе Telegram, она была имитирована. Обратите внимание, что вам не следует делать этого в производстве, а текущее поведение характерно только для процесса разработки. Имитация среды также применяется только в режиме разработки. Таким образом, после сборки приложения вы не увидите этого поведения и соответствующего предупреждения, приводящего к сбою приложения вне Telegram',
       );
     }
   });

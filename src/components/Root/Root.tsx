@@ -1,31 +1,35 @@
 'use client';
 
-import { type PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import {
   SDKProvider,
+  bindMiniAppCSSVars,
+  bindThemeParamsCSSVars,
+  bindViewportCSSVars,
+  useInitData,
   useLaunchParams,
   useMiniApp,
   useThemeParams,
   useViewport,
-  bindMiniAppCSSVars,
-  bindThemeParamsCSSVars,
-  bindViewportCSSVars,
 } from '@telegram-apps/sdk-react';
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
+import { TonConnectUIProvider } from '@tonconnect/ui-react';
+import { useEffect, useMemo, type PropsWithChildren } from 'react';
 
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ErrorPage } from '@/components/ErrorPage';
-import { useTelegramMock } from '@/hooks/useTelegramMock';
 import { useDidMount } from '@/hooks/useDidMount';
+import { useTelegramMock } from '@/hooks/useTelegramMock';
 
 import './styles.css';
+import { ShowData } from '../ShowData/ShowData';
 
 function App(props: PropsWithChildren) {
   const lp = useLaunchParams();
   const miniApp = useMiniApp();
   const themeParams = useThemeParams();
   const viewport = useViewport();
+
+  // console.log(miniApp, themeParams, viewport);
 
   useEffect(() => {
     return bindMiniAppCSSVars(miniApp, themeParams);
@@ -64,16 +68,18 @@ function RootInner({ children }: PropsWithChildren) {
   // Enable debug mode to see all the methods sent and events received.
   useEffect(() => {
     if (debug) {
-      import('eruda').then((lib) => lib.default.init());
+      import('eruda').then(lib => lib.default.init());
     }
   }, [debug]);
+
+  // const userRows = useMemo<DisplayDataRow[] | undefined>(() => {
+  //   return initData && initData.user ? getUserRows(initData.user) : undefined;
+  // }, [initData]);
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
       <SDKProvider acceptCustomStyles debug={debug}>
-        <App>
-          {children}
-        </App>
+        <App>{children}</App>
       </SDKProvider>
     </TonConnectUIProvider>
   );
@@ -86,7 +92,9 @@ export function Root(props: PropsWithChildren) {
 
   return didMount ? (
     <ErrorBoundary fallback={ErrorPage}>
-      <RootInner {...props}/>
+      <RootInner {...props} />
     </ErrorBoundary>
-  ) : <div className="root__loading">Loading</div>;
+  ) : (
+    <div className='root__loading'>Loading</div>
+  );
 }

@@ -1,0 +1,32 @@
+@font-face {
+  font-display: swap;
+  font-family: 'SF Pro Display Bold';
+  font-style: normal;
+  src:
+    local('SFProDisplayBold'),
+    url('../fonts/SFProDisplayBold.woff2') format('woff2'),
+    url('../fonts/SFProDisplayBold.woff') format('woff'),
+    url('../fonts/SFProDisplayBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'SF Pro Display Medium';
+  font-style: normal;
+  src:
+    local('DrukWideBold'),
+    url('../fonts/SFProDisplayMedium.woff2') format('woff2'),
+    url('../fonts/SFProDisplayMedium.woff') format('woff'),
+    url('../fonts/SFProDisplayMedium.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'SF Pro Display Regular';
+  font-style: normal;
+  src:
+    local('FuturaBookC'),
+    url('../fonts/SFProDisplayRegular.woff2') format('woff2'),
+    url('../fonts/SFProDisplayRegular.woff') format('woff'),
+    url('../fonts/SFProDisplayRegular.ttf') format('truetype');
+}

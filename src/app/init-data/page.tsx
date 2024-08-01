@@ -1,12 +1,20 @@
 'use client';
 
 import { useMemo } from 'react';
-import { useInitData, useLaunchParams, type User } from '@telegram-apps/sdk-react';
+import {
+  useInitData,
+  useLaunchParams,
+  type User,
+} from '@telegram-apps/sdk-react';
 import { List, Placeholder } from '@telegram-apps/telegram-ui';
 
-import { DisplayData, type DisplayDataRow } from '@/components/DisplayData/DisplayData';
+import {
+  DisplayData,
+  type DisplayDataRow,
+} from '@/components/DisplayData/DisplayData';
+import { ShowData } from '@/components/ShowData/ShowData';
 
-function getUserRows(user: User): DisplayDataRow[] {
+export function getUserRows(user: User): DisplayDataRow[] {
   return [
     { title: 'id', value: user.id.toString() },
     { title: 'username', value: user.username },
@@ -24,6 +32,8 @@ function getUserRows(user: User): DisplayDataRow[] {
 export default function InitDataPage() {
   const initDataRaw = useLaunchParams().initDataRaw;
   const initData = useInitData();
+  console.log(initDataRaw, initData);
+  console.log(initDataRaw);
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
     if (!initData || !initDataRaw) {
@@ -58,7 +68,9 @@ export default function InitDataPage() {
   }, [initData]);
 
   const receiverRows = useMemo<DisplayDataRow[] | undefined>(() => {
-    return initData && initData.receiver ? getUserRows(initData.receiver) : undefined;
+    return initData && initData.receiver
+      ? getUserRows(initData.receiver)
+      : undefined;
   }, [initData]);
 
   const chatRows = useMemo<DisplayDataRow[] | undefined>(() => {
@@ -79,12 +91,12 @@ export default function InitDataPage() {
   if (!initDataRows) {
     return (
       <Placeholder
-        header="Oops"
-        description="Application was launched with missing init data"
+        header='Oops'
+        description='Application was launched with missing init data'
       >
         <img
-          alt="Telegram sticker"
-          src="https://xelene.me/telegram.gif"
+          alt='Telegram sticker'
+          src='https://xelene.me/telegram.gif'
           style={{ display: 'block', width: '144px', height: '144px' }}
         />
       </Placeholder>
@@ -92,10 +104,11 @@ export default function InitDataPage() {
   }
   return (
     <List>
-      <DisplayData header={'Init Data'} rows={initDataRows}/>
-      {userRows && <DisplayData header={'User'} rows={userRows}/>}
-      {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows}/>}
-      {chatRows && <DisplayData header={'Chat'} rows={chatRows}/>}
+      <ShowData data={initData.receiver} />
+      <DisplayData header={'Init Data'} rows={initDataRows} />
+      {userRows && <DisplayData header={'User'} rows={userRows} />}
+      {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows} />}
+      {chatRows && <DisplayData header={'Chat'} rows={chatRows} />}
     </List>
   );
-};
+}
