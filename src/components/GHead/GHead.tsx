@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ShowData } from '../ShowData/ShowData';
 import Image from 'next/image';
 import mockImg from '../../app/_assets/images/mock/userImage.png';
-import { Container } from '../Container/container';
+import { Container } from '../Container/Container';
 
 interface GHeadProps {
   userData: any;
