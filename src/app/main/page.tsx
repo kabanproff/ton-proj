@@ -1,18 +1,14 @@
 'use client';
 
-import { Button, Cell, Image, List, Section } from '@telegram-apps/telegram-ui';
+import { Cell, Image, List, Section } from '@telegram-apps/telegram-ui';
 
 import { Link } from '@/components/Link/Link';
 
-import { initBackButton } from '@telegram-apps/sdk-react';
 import { SectionHeader } from '@telegram-apps/telegram-ui/dist/components/Blocks/Section/components/SectionHeader/SectionHeader';
-import { useEffect } from 'react';
 import tonSvg from '../_assets/ton.svg';
 import { BackButton } from '@/components/BackButton/BackButton';
-// import { useRouter } from 'next/navigation';
 
 export default function Home() {
-
   return (
     <List>
       <Section footer='You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects'>
@@ -23,7 +19,11 @@ export default function Home() {
         <Link href='/ton-connect'>
           <Cell
             before={
-              <Image src={tonSvg.src} style={{ backgroundColor: '#007AFF' }} />
+              <Image
+                src={tonSvg.src}
+                style={{ backgroundColor: '#007AFF' }}
+                alt='Logo Ton'
+              />
             }
             subtitle='Connect your TON wallet'
           >

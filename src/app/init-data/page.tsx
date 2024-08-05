@@ -1,20 +1,16 @@
 'use client';
 
-import { useMemo } from 'react';
-import {
-  useInitData,
-  useLaunchParams,
-  type User,
-} from '@telegram-apps/sdk-react';
+import { User, useInitData, useLaunchParams } from '@telegram-apps/sdk-react';
 import { List, Placeholder } from '@telegram-apps/telegram-ui';
 
 import {
   DisplayData,
-  type DisplayDataRow,
+  DisplayDataRow,
 } from '@/components/DisplayData/DisplayData';
 import { ShowData } from '@/components/ShowData/ShowData';
+import { useMemo } from 'react';
 
-export function getUserRows(user: User): DisplayDataRow[] {
+function getUserRows(user: User): DisplayDataRow[] {
   return [
     { title: 'id', value: user.id.toString() },
     { title: 'username', value: user.username },
@@ -26,7 +22,7 @@ export function getUserRows(user: User): DisplayDataRow[] {
     { title: 'language_code', value: user.languageCode },
     { title: 'allows_to_write_to_pm', value: user.allowsWriteToPm },
     { title: 'added_to_attachment_menu', value: user.addedToAttachmentMenu },
-  ];
+  ] as DisplayDataRow[];
 }
 
 export default function InitDataPage() {
@@ -104,7 +100,7 @@ export default function InitDataPage() {
   }
   return (
     <List>
-      <ShowData data={initData.receiver} />
+      <ShowData data={initData?.receiver} />
       <DisplayData header={'Init Data'} rows={initDataRows} />
       {userRows && <DisplayData header={'User'} rows={userRows} />}
       {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows} />}
