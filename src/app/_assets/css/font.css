@@ -14,7 +14,7 @@
   font-family: 'SF Pro Display Medium';
   font-style: normal;
   src:
-    local('DrukWideBold'),
+    /* local('SF Pro Display Medium'), */
     url('../fonts/SFProDisplayMedium.woff2') format('woff2'),
     url('../fonts/SFProDisplayMedium.woff') format('woff'),
     url('../fonts/SFProDisplayMedium.ttf') format('truetype');
@@ -25,7 +25,7 @@
   font-family: 'SF Pro Display Regular';
   font-style: normal;
   src:
-    local('FuturaBookC'),
+    /* local('SF Pro Display Regular'), */
     url('../fonts/SFProDisplayRegular.woff2') format('woff2'),
     url('../fonts/SFProDisplayRegular.woff') format('woff'),
     url('../fonts/SFProDisplayRegular.ttf') format('truetype');

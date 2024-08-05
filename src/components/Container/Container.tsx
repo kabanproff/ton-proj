@@ -9,7 +9,7 @@ export const Container: React.FC<React.PropsWithChildren<Props>> = ({
   children,
 }) => {
   return (
-    <div className={['mx-auto', 'max-w-[320px]', className].join(' ')}>
+    <div className={[className, 'mx-[16px] min-w-[327px]'].join(' ')}>
       {children}
     </div>
   );

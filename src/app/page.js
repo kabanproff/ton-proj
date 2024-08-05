@@ -6,6 +6,9 @@ import Progress from '@/components/Progress/Progress';
 import { Link } from '@/components/Link/Link';
 import { GHead } from '@/components/GHead/GHead';
 import { useInitData } from '@telegram-apps/sdk-react';
+import { GBody } from '@/components/GBody/GBody';
+import { GFooter } from '@/components/GFooter/GFooter';
+import { RButtons } from '@/components/RButtons/RButtons';
 
 export default function Home() {
   const initData = useInitData();
@@ -44,15 +47,21 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className='main fixed left-0 top-0 right-0 bottom-0 flex flex-col'>
       {/* <ShowData data={initData} /> */}
       <GHead userData={initData.user} />
-      <Link href='/main'>main</Link>
+      <GBody className='flex-grow' bodyStatus='main'>
+        <RButtons />
+        <Link className='inline-block w-full mt-4 text-center' href='/main'>
+          main
+        </Link>
+        <GFooter className='h-[100px] mx-[16px]' />
+      </GBody>
 
-      <h1>Counter</h1>
-      <Counter clikers={clikers} handleClick={handleClick} />
+      {/* <h1>Counter</h1> */}
+      {/* <Counter clikers={clikers} handleClick={handleClick} /> */}
 
-      <Progress status={status} progress={progress} setProgress={setProgress} />
+      {/* <Progress status={status} progress={progress} setProgress={setProgress} /> */}
     </main>
   );
 }
