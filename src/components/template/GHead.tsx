@@ -1,9 +1,8 @@
-import { FC } from 'react';
-import { ShowData } from '../ShowData/ShowData';
 import Image from 'next/image';
+import { FC } from 'react';
 import mockImg from '../../app/_assets/images/mock/userImage.png';
 import starGroup from '../../app/_assets/images/star-group.png';
-import { Container } from '../Container/Container';
+import { Container } from './Container';
 
 interface GHeadProps {
   userData: any;

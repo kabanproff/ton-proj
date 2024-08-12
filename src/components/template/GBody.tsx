@@ -1,6 +1,6 @@
 import { classNames } from '@telegram-apps/sdk-react';
 import { FC, ReactNode, useMemo } from 'react';
-import { Container } from '../Container/Container';
+import { Container } from './Container';
 
 interface GBodyProps {
   className?: string;

@@ -17,6 +17,9 @@
   --fz-xs: 10px;
 
   --lh-base: 16px;
+
+  --solar-color: #d7190d;
+  --solar-bg-color: #0c51cb;
 }
 
 body {
@@ -24,3 +27,5 @@ body {
   background-color: var(--color-black);
   font-family: 'SF Pro Display Bold', sans-serif;
 }
+
+@import './custom.css';

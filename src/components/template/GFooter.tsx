@@ -7,5 +7,14 @@ interface GFooterProps {
 }
 
 export const GFooter: FC<GFooterProps> = ({ className, children }) => {
-  return <div className={classNames(['g-Footer', className])}></div>;
+  return (
+    <div
+      className={classNames([
+        'g-Footer text-center p-4 bg-slate-600',
+        className,
+      ])}
+    >
+      Footer
+    </div>
+  );
 };

@@ -9,8 +9,8 @@ import './_assets/css/globals.css';
 import './_assets/css/font.css';
 
 export const metadata: Metadata = {
-  title: 'Your Application Title Goes Here',
-  description: 'Your application description goes here',
+  title: 'GalaxyGame',
+  description: 'GalaxyGame - product by A3 Global',
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

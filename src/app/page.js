@@ -1,14 +1,9 @@
 'use client';
-import Counter from '../components/Counter/Counter';
 import { useEffect, useState } from 'react';
-import Progress from '@/components/Progress/Progress';
-
 import { Link } from '@/components/Link/Link';
-import { GHead } from '@/components/GHead/GHead';
 import { useInitData } from '@telegram-apps/sdk-react';
-import { GBody } from '@/components/GBody/GBody';
-import { GFooter } from '@/components/GFooter/GFooter';
-import { RButtons } from '@/components/RButtons/RButtons';
+import { GHead, GDesk, GBody, GFooter } from '@/components/template';
+import { RButtons } from '@/components';
 
 export default function Home() {
   const initData = useInitData();
@@ -52,6 +47,7 @@ export default function Home() {
       <GHead userData={initData.user} />
       <GBody className='flex-grow' bodyStatus='main'>
         <RButtons />
+        <GDesk />
         <Link className='inline-block w-full mt-4 text-center' href='/main'>
           main
         </Link>
