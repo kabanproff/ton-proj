@@ -10,7 +10,7 @@ export const GTemp: React.FC<Props> = ({ className, tempCount }) => {
   return (
     <div
       className={cn(
-        'g-temp text-center flex-center h-[45px] mb-[8px]',
+        'g-temp text-center flex-center h-[45px] mb-[4px]',
         className,
       )}
     >

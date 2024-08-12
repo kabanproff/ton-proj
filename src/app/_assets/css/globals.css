@@ -15,6 +15,7 @@
 
   --fz-base: 14px;
   --fz-xs: 10px;
+  --fz-lg: 18px;
 
   --lh-base: 16px;
 
@@ -25,6 +26,7 @@
 body {
   @apply text-base leading-base text-white;
   background-color: var(--color-black);
+  color: #ffffff;
   font-family: 'SF Pro Display Bold', sans-serif;
 }
 

@@ -21,9 +21,14 @@ const config: Config = {
         'sky-stars': "url('../images/sky-stars.png')",
         soplarBg:
           'radial-gradient(circle, rgba(12,81,203,1) 1%, rgba(0,0,0,0) 70%);',
+        // 'radial-center':
+        //   'radial-gradient(ellipse_at_center,var(--tw-gradient-stops))',
       },
       dropShadow: {
         main: '20px 30px 100px rgba(255, 255, 255, 0.05)',
+      },
+      boxShadow: {
+        evolution: '0 0 12px #fff',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -33,6 +38,7 @@ const config: Config = {
       fontSize: {
         xs: 'var(--fz-xs)',
         base: 'var(--fz-base)',
+        lg: 'var(--fz-lg)',
       },
       lineHeight: {
         base: 'var(--lh-base)',
